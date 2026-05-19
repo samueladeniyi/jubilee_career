@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jubilee Career Services - Official Flyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #080c1a;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    padding: 40px 20px;
+  }
+  .flyer {
+    width: 680px;
+    background: #0d1020;
+    border: 1px solid rgba(212,175,55,0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  .corner { position: absolute; width: 36px; height: 36px; z-index: 10; }
+  .corner.tl { top: 10px; left: 10px; border-top: 2px solid #d4af37; border-left: 2px solid #d4af37; }
+  .corner.tr { top: 10px; right: 10px; border-top: 2px solid #d4af37; border-right: 2px solid #d4af37; }
+  .corner.bl { bottom: 10px; left: 10px; border-bottom: 2px solid #d4af37; border-left: 2px solid #d4af37; }
+  .corner.br { bottom: 10px; right: 10px; border-bottom: 2px solid #d4af37; border-right: 2px solid #d4af37; }
+  .gold-bar { height: 4px; background: linear-gradient(90deg, #0d1020, #b8952a, #f0d060, #b8952a, #0d1020); }
+  .header {
+    padding: 44px 56px 32px;
+    text-align: center;
+    background: linear-gradient(180deg, #131830 0%, #0d1020 100%);
+    border-bottom: 1px solid rgba(212,175,55,0.15);
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .monogram {
+    width: 60px; height: 60px;
+    border: 1.5px solid #d4af37;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .monogram::before {
+    content: '';
+    position: absolute;
+    width: 50px; height: 50px;
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 50%;
+  }
+  .monogram span { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #d4af37; }
+  .brand { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: #fff; letter-spacing: 0.03em; margin-bottom: 6px; }
+  .brand em { color: #d4af37; font-style: normal; }
+  .tagline { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.5); letter-spacing: 0.2em; text-transform: uppercase; }
+  .divider { display: flex; align-items: center; gap: 10px; padding: 0 56px; margin: 26px 0; }
+  .divider .ln { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #d4af37, transparent); }
+  .divider .dm { width: 7px; height: 7px; background: #d4af37; transform: rotate(45deg); flex-shrink: 0; }
+  .hero { padding: 0 56px; text-align: center; margin-bottom: 28px; }
+  .hero h2 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.45; }
+  .hero p { font-size: 12.5px; color: rgba(255,255,255,0.5); line-height: 1.85; font-weight: 300; }
+  .services { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(212,175,55,0.12); margin-bottom: 26px; }
+  .svc { background: #0d1020; padding: 22px 26px; }
+  .svc-icon { font-size: 18px; margin-bottom: 12px; }
+  .svc-name { font-size: 11px; font-weight: 600; color: #d4af37; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 6px; }
+  .svc-desc { font-size: 11.5px; color: rgba(255,255,255,0.45); line-height: 1.7; font-weight: 300; }
+  .quote-band {
+    background: linear-gradient(135deg, #141930, #0d1020);
+    border-top: 1px solid rgba(212,175,55,0.15);
+    border-bottom: 1px solid rgba(212,175,55,0.15);
+    padding: 20px 56px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .quote-band p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.6; }
+  .quote-band span { color: #d4af37; font-style: normal; font-weight: 600; }
+  .features { padding: 0 56px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 9px 20px; }
+  .feat { display: flex; align-items: flex-start; gap: 9px; }
+  .feat-dot { width: 5px; height: 5px; background: #d4af37; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .feat-text { font-size: 11.5px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+  .pills-label { text-align: center; font-size: 10.5px; color: rgba(212,175,55,0.55); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
+  .pills { padding: 0 56px 26px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .pill { background: rgba(212,175,55,0.07); border: 1px solid rgba(212,175,55,0.25); border-radius: 20px; padding: 5px 14px; font-size: 10.5px; color: rgba(255,255,255,0.6); }
+  .cta { background: linear-gradient(135deg, #131830, #0d1020); border-top: 1px solid rgba(212,175,55,0.18); padding: 28px 56px 36px; text-align: center; }
+  .cta h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: #fff; font-weight: 700; margin-bottom: 20px; }
+  .contacts { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 18px; }
+  .contact { display: flex; align-items: center; gap: 10px; }
+  .c-icon { width: 30px; height: 30px; border: 1px solid rgba(212,175,55,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #d4af37; }
+  .c-label { font-size: 10.5px; color: rgba(255,255,255,0.4); display: block; }
+  .c-value { font-size: 12.5px; color: rgba(255,255,255,0.85); font-weight: 500; }
+  .footer-text { font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.14em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="flyer">
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+  <div class="gold-bar"></div>
+  <div class="header">
+    <div class="monogram"><span>J</span></div>
+    <div class="brand">Jubilee <em>Career</em> Services</div>
+    <div class="tagline">Elevating Careers · Globally</div>
+  </div>
+  <div class="divider"><div class="ln"></div><div class="dm"></div><div class="ln"></div></div>
+  <div class="hero">
+    <h2>Your Career Deserves a World-Class Presentation</h2>
+    <p>Professional HR-led career services designed for ambitious professionals<br>seeking remote and onsite roles — locally and internationally.</p>
+  </div>
+  <div class="services">
+    <div class="svc">
+      <div class="svc-icon">📄</div>
+      <div class="svc-name">CV Writing</div>
+      <div class="svc-desc">ATS-optimised, globally competitive CVs tailored to your target role — remote or onsite, home or abroad.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-icon">🎯</div>
+      <div class="svc-name">Interview Preparation</div>
+      <div class="svc-desc">Mock sessions, behavioural coaching, confidence building and role-specific question strategy.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-icon">🏢</div>
+      <div class="svc-name">Corporate Training</div>
+      <div class="svc-desc">Specialised Admin & PA skills training — equip yourself with executive support excellence.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-icon">💼</div>
+      <div class="svc-name">LinkedIn Optimisation</div>
+      <div class="svc-desc">Profile transformation that attracts global recruiters and reflects your professional brand.</div>
+    </div>
+  </div>
+  <div class="quote-band">
+    <p>"From <span>first impression</span> to <span>final offer</span> — we walk every step with you."</p>
+  </div>
+  <div class="features">
+    <div class="feat"><div class="feat-dot"></div><div class="feat-text">Global ATS compatibility</div></div>
+    <div class="feat"><div class="feat-dot"></div><div class="feat-text">Remote & onsite job-ready</div></div>
+    <div class="feat"><div class="feat-dot"></div><div class="feat-text">HR-professional led service</div></div>
+    <div class="feat"><div class="feat-dot"></div><div class="feat-text">Tailored or general-purpose CVs</div></div>
+    <div class="feat"><div class="feat-dot"></div><div class="feat-text">Interview & training workshops</div></div>
+    <div class="feat"><div class="feat-dot"></div><div class="feat-text">Custom packages available</div></div>
+  </div>
+  <div class="pills-label">Who We Serve</div>
+  <div class="pills">
+    <div class="pill">Fresh Graduates</div>
+    <div class="pill">Mid-Level Professionals</div>
+    <div class="pill">Career Changers</div>
+    <div class="pill">Executives & PAs</div>
+    <div class="pill">Diaspora Job Seekers</div>
+    <div class="pill">Remote Workers</div>
+  </div>
+  <div class="cta">
+    <h3>Book a Consultation Today</h3>
+    <div class="contacts">
+      <div class="contact">
+        <div class="c-icon">✉</div>
+        <div>
+          <span class="c-label">Email</span>
+          <span class="c-value">jubileecareerservices@gmail.com</span>
+        </div>
+      </div>
+      <div class="contact">
+        <div class="c-icon">📞</div>
+        <div>
+          <span class="c-label">Phone / WhatsApp</span>
+          <span class="c-value">09162335958</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-text">Jubilee Career Services · Excellence in Every Application</div>
+  </div>
+  <div class="gold-bar"></div>
+</div>
+</body>
+</html>
